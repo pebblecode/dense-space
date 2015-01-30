@@ -42,7 +42,7 @@ $(document).ready(function() {
   var worldPromise = canvas.init(screenWidth, screenHeight);
 
   var gbData = _.find(data, {
-    code: "MO"
+    code: "GB"
   });
   var density = gbData.value;
 
@@ -69,11 +69,26 @@ $(document).ready(function() {
       });
 
       var strVals = _.map(results, function(r) {
-        return "<div><a href='#" + r.code + "'>" + r.name + "</a><div>";
+        return "<div><a onclick='selectName(\"" + r.code + "\")'>" + r.name + "</a><div>";
       });
       var str = strVals.join("");
 
       el.autocomplete.html(str);
     }
   });
+
+  window.selectName = function(countryCode) {
+    el.autocomplete.hide();
+
+    var gbData = _.find(data, {
+      code: countryCode
+    });
+    var density = gbData.value;
+
+    var ballOptions =  {
+      width: screenWidth,
+      height: screenHeight
+    };
+    redraw(worldPromise, screenWidth, screenHeight, density, ballOptions);
+    };
 });
