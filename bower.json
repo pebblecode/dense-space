@@ -9,7 +9,6 @@
   ],
   "dependencies": {
     "bootstrap": "https://github.com/twbs/bootstrap/archive/3.0.0-wip.zip",
-    "jquery": "~1.10.x",
     "physicsjs": "~0.7.0"
   }
 }

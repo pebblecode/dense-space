@@ -1,6 +1,7 @@
 "use strict";
 
 var _ = require('lodash');
+var $ = require ('jquery');
 
 var balls = require("./lib/balls");
 var data = require("../public/data/population-density");
