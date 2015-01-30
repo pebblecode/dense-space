@@ -56,7 +56,7 @@ var init = function() {
       code: "MO"
     });
     var density = gbData.value;
-    balls.createByDensity(world, density, {
+    var allBalls = balls.createByDensity(world, density, {
       width: viewWidth,
       height: viewWidth
     });
@@ -83,6 +83,13 @@ var init = function() {
 
     // start the ticker
     Physics.util.ticker.start();
+
+    // Refresh view
+    $("#viewport").click(function() {
+      _.each(allBalls, function(b) {
+        world.removeBody(b);
+      });
+    });
 
   });
 };

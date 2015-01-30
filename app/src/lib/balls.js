@@ -9,15 +9,17 @@ var balls = {
     var vy = options.vy || 0.01; // velocity in y-direction
     var radius = options.radius || 20;
 
-    world.add(
-      Physics.body('circle', {
-        x: x,
-        y: y,
-        vx: vx,
-        vy: vy,
-        radius: radius
-      })
-    );
+    var circle = Physics.body('circle', {
+      x: x,
+      y: y,
+      vx: vx,
+      vy: vy,
+      radius: radius
+    });
+
+    world.add(circle);
+
+    return circle;
   },
   createByDensity: function(world, density, options) {
     options = options || {};
@@ -25,7 +27,7 @@ var balls = {
     var width = options.width || 100;
     var height = options.height || 100;
     var meterSqPerPerson = options.meterSqPerPerson || 1;
-    var numCircles = options.numCircles || 100;
+    var numCircles = options.numCircles || 10;
 
     var kmSqPerPerson = meterSqPerPerson * Math.pow(1000, 2);
     var screenArea = width * height;
@@ -35,17 +37,20 @@ var balls = {
 
     var circleArea = totalCircleArea / numCircles;
     var circleRadius = Math.sqrt(circleArea / Math.PI);
+    var allBalls = [];
 
     for (var i = 0; i < numCircles; i++) {
-      balls.create(world, {
+      var ball = balls.create(world, {
         x: Math.random() * width,
         y: Math.random() * height,
         vx: Math.random() * 0.7,
         vy: Math.random() * 0.7,
         radius: circleRadius
       });
+      allBalls.push(ball);
     }
 
+    return allBalls;
   }
 };
 
