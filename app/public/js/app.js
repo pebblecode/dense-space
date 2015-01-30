@@ -26,7 +26,7 @@ var init = function() {
         'circle' : {
           strokeStyle: '#351024',
           lineWidth: 1,
-          fillStyle: '#d33682',
+          fillStyle: '#B1D884',
           angleIndicator: '#351024'
         }
       }
