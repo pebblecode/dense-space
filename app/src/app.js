@@ -47,7 +47,7 @@ var init = function() {
     // constrain objects to these bounds
     world.add(Physics.behavior('edge-collision-detection', {
       aabb: viewportBounds,
-      restitution: 0.99,
+      restitution: 0.5, // Higher = more bouncy
       cof: 0.99
     }));
 
@@ -71,6 +71,10 @@ var init = function() {
 
     // add some gravity
     world.add( Physics.behavior('constant-acceleration') );
+
+    // colliding with each other
+    world.add( Physics.behavior('body-collision-detection') );
+    world.add( Physics.behavior('sweep-prune') ); // optimization for collision
 
     // subscribe to ticker to advance the simulation
     Physics.util.ticker.on(function( time, dt ) {
