@@ -54,7 +54,6 @@ var jsTestFiles = [
 // errors when vendor files can't be minified properly)
 var vendorFiles = [
   path.vendor + "/jquery/jquery.min.js",
-  path.vendor + "/lodash/lodash.min.js",
   path.vendor + "/physicsjs/dist/physicsjs-full.min.js"
 ];
 

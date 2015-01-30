@@ -18,6 +18,34 @@ var balls = {
         radius: radius
       })
     );
+  },
+  createByDensity: function(world, density, options) {
+    options = options || {};
+    density = density || 0;
+    var width = options.width || 100;
+    var height = options.height || 100;
+    var meterSqPerPerson = options.meterSqPerPerson || 1;
+    var numCircles = options.numCircles || 10;
+
+    var kmSqPerPerson = meterSqPerPerson * Math.pow(1000, 2);
+    var screenArea = width * height;
+
+    var totalCircleArea = density / kmSqPerPerson * screenArea;
+
+
+    var circleArea = totalCircleArea / numCircles;
+    var circleRadius = Math.sqrt(circleArea / Math.PI);
+
+    for (var i = 0; i < numCircles; i++) {
+      balls.create(world, {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: Math.random() * 0.7,
+        vy: Math.random() * 0.7,
+        radius: circleRadius
+      });
+    }
+
   }
 };
 

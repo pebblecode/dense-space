@@ -1,6 +1,9 @@
 "use strict";
 
+var _ = require('lodash');
+
 var balls = require("./lib/balls");
+var data = require("../public/data/population-density");
 
 var init = function() {
   var el = {
@@ -47,15 +50,15 @@ var init = function() {
       cof: 0.99
     }));
 
-    for (var i = 0; i < 100; i++) {
-      balls.create(world, {
-        x: Math.random() * viewWidth,
-        y: Math.random() * viewHeight,
-        vx: Math.random(),
-        vy: Math.random(),
-        radius: Math.random() * 50
-      });
-    }
+    // Generate all the balls
+    var gbData = _.find(data, {
+      code: "GB"
+    });
+    var density = gbData.value;
+    balls.createByDensity(world, density, {
+      width: viewWidth,
+      height: viewWidth
+    });
 
     // render on each step
     world.on('step', function(){
@@ -82,3 +85,7 @@ var init = function() {
 $(document).ready(function() {
   init();
 });
+
+// Expose for hacking
+window.data = data;
+window._ = _;
