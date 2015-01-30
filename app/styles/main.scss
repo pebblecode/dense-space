@@ -2,6 +2,23 @@
 @import "_skeleton";
 
 #viewport {
+  position: relative;
   background-color: #C7CFD1;
   overflow: none;
+}
+
+.container {
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+}
+
+#name {
+}
+
+canvas {
+  z-index: 0;
 }

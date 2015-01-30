@@ -849,5 +849,18 @@ there.
 
 /* line 4, /Users/ttt/Work/Dev/dense-space/app/styles/main.scss */
 #viewport {
+  position: relative;
   background-color: #C7CFD1;
   overflow: none; }
+
+/* line 10, /Users/ttt/Work/Dev/dense-space/app/styles/main.scss */
+.container {
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100; }
+
+/* line 22, /Users/ttt/Work/Dev/dense-space/app/styles/main.scss */
+canvas {
+  z-index: 0; }
