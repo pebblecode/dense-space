@@ -1,10 +1,20 @@
 "use strict";
 
 var init = function() {
+  var el = {
+    viewport: $("#viewport")
+  };
+
+  var screenWidth = $("body").innerWidth();
+  var screenHeight = $(document).innerHeight();
+
+  el.viewport.width(screenWidth);
+  el.viewport.height(screenHeight);
+
   Physics(function(world) {
 
-    var viewWidth = 500;
-    var viewHeight = 300;
+    var viewWidth = screenWidth;
+    var viewHeight = screenHeight;
 
     var renderer = Physics.renderer('canvas', {
       id: 'viewport',
