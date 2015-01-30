@@ -53,7 +53,7 @@ var init = function() {
 
     // Generate all the balls
     var gbData = _.find(data, {
-      code: "GB"
+      code: "MO"
     });
     var density = gbData.value;
     balls.createByDensity(world, density, {
