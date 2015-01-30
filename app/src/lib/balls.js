@@ -27,7 +27,7 @@ var balls = {
     var width = options.width || 100;
     var height = options.height || 100;
     var meterSqPerPerson = options.meterSqPerPerson || 1;
-    var numCircles = options.numCircles || 10;
+    var numCircles = options.numCircles || 100;
 
     var kmSqPerPerson = meterSqPerPerson * Math.pow(1000, 2);
     var screenArea = width * height;
